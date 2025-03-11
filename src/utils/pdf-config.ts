@@ -1,4 +1,4 @@
-import { ToolbarIdConfig } from "@/types";
+import type { ToolbarIdConfig } from "@/types";
 import { PDF_FILE_INPUT_ID } from "@/utils/constants";
 
 const getEl = document.getElementById.bind(document);

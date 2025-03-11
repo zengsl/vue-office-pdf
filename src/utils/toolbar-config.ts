@@ -1,4 +1,4 @@
-import { ToolbarConfValue, ToolbarConfig } from "@/types";
+import type { ToolbarConfValue, ToolbarConfig } from "@/types";
 
 export const toolbarConfig: ToolbarConfig = {
   sidebar: {

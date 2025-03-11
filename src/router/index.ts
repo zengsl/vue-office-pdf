@@ -31,7 +31,7 @@ import About from '@/components/about-view.vue'
 import Sandbox from '@/views/sandbox-view.vue'
 
 export default createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
