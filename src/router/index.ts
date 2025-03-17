@@ -17,6 +17,11 @@ export default createRouter({
             component: () => import('@/views/theme-toggling.vue')
         },
         {
+            path: '/pdf-test-Dialog',
+            name: 'pdf-test-Dialog',
+            component: () => import('@/views/pdfDialogTest.vue')
+        },
+        {
             path: '/sandbox',
             name: 'sandbox',
             component:  () => import('@/views/sandbox-view.vue')

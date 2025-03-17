@@ -7,6 +7,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/theme-toggling">Theme toggling</router-link>|
+      <router-link to="/pdf-test-Dialog">Pdf-Test-Dialog</router-link>|
       <router-link to="/about">About</router-link>
     </div>
     <router-view />

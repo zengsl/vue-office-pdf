@@ -153,7 +153,8 @@ class BasePreferences {
   }
 
   async getAll() {
-    await this._initializedPromise;
+    const res = await this._initializedPromise;
+    console.log('res', res)
     return Object.assign(Object.create(null), this.defaults, this.prefs);
   }
 
