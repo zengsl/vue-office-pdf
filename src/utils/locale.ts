@@ -1,291 +1,184 @@
 /* eslint-disable @typescript-eslint/camelcase */
 export default {
-  default_locale: "en",
+  default_locale: 'zh',
   locales: {
-    en: {
-      annotation_date_string: { textContent: "{{date}}, {{time}}" },
-      attachments_label: { textContent: "Attachments" },
-      attachments: {
-        title: "Show Attachments"
-      },
-      bookmark_label: { textContent: "Current View" },
-      bookmark: {
-        title: "Current view (copy or open in new window)"
-      },
-      cursor_hand_tool_label: { textContent: "Hand Tool" },
-      cursor_hand_tool: {
-        title: "Enable Hand Tool"
-      },
-      cursor_text_select_tool_label: { textContent: "Text Selection Tool" },
-      cursor_text_select_tool: {
-        title: "Enable Text Selection Tool"
-      },
-      document_outline_label: { textContent: "Document Outline" },
-      document_outline: {
-        title:
-          "Show Document Outline (double-click to expand/collapse all items)"
-      },
-      document_properties_author: { textContent: "Author:" },
-      document_properties_close: { textContent: "Close" },
-      document_properties_creation_date: { textContent: "Creation Date:" },
-      document_properties_creator: { textContent: "Creator:" },
-      document_properties_date_string: { textContent: "{{date}}, {{time}}" },
-      document_properties_file_name: { textContent: "File name:" },
-      document_properties_file_size: { textContent: "File size:" },
-      document_properties_kb: {
-        textContent: "{{size_kb}} KB ({{size_b}} bytes)"
-      },
-      document_properties_keywords: { textContent: "Keywords:" },
-      document_properties_label: { textContent: "Document Properties…" },
-      document_properties_linearized_no: { textContent: "No" },
-      document_properties_linearized_yes: { textContent: "Yes" },
-      document_properties_linearized: { textContent: "Fast Web View:" },
-      document_properties_mb: {
-        textContent: "{{size_mb}} MB ({{size_b}} bytes)"
-      },
-      document_properties_modification_date: {
-        textContent: "Modification Date:"
-      },
-      document_properties_page_count: { textContent: "Page Count:" },
-      document_properties_page_size_dimension_name_string: {
-        textContent:
-          "{{width}} × {{height}} {{unit}} ({{name}}, {{orientation}})"
-      },
-      document_properties_page_size_dimension_string: {
-        textContent: "{{width}} × {{height}} {{unit}} ({{orientation}})"
-      },
-      document_properties_page_size_name_a3: { textContent: "A3" },
-      document_properties_page_size_name_a4: { textContent: "A4" },
-      document_properties_page_size_name_legal: { textContent: "Legal" },
-      document_properties_page_size_name_letter: { textContent: "Letter" },
-      document_properties_page_size_orientation_landscape: {
-        textContent: "landscape"
-      },
-      document_properties_page_size_orientation_portrait: {
-        textContent: "portrait"
-      },
-      document_properties_page_size_unit_inches: { textContent: "in" },
-      document_properties_page_size_unit_millimeters: { textContent: "mm" },
-      document_properties_page_size: { textContent: "Page Size:" },
-      document_properties_producer: { textContent: "PDF Producer:" },
-      document_properties_subject: { textContent: "Subject:" },
-      document_properties_title: { textContent: "Title:" },
-      document_properties_version: { textContent: "PDF Version:" },
-      document_properties: {
-        title: "Document Properties…"
-      },
-      download_label: { textContent: "Download" },
-      download: {
-        title: "Download"
-      },
-      error_close: { textContent: "Close" },
-      error_file: { textContent: "File: {{file}}" },
-      error_less_info: { textContent: "Less Information" },
-      error_line: { textContent: "Line: {{line}}" },
-      error_message: { textContent: "Message: {{message}}" },
-      error_more_info: { textContent: "More Information" },
-      error_stack: { textContent: "Stack: {{stack}}" },
-      error_version_info: {
-        textContent: "PDF.js v{{version}} (build: {{build}})"
-      },
-      find_entire_word_label: { textContent: "Whole words" },
-      find_highlight: { textContent: "Highlight all" },
-      find_input: {
-        placeholder: "Find in document…",
-        title: "Find"
-      },
-      find_match_case_label: { textContent: "Match case" },
-      "find_match_count_limit[few]": {
-        textContent: "More than {{limit}} matches"
-      },
-      "find_match_count_limit[many]": {
-        textContent: "More than {{limit}} matches"
-      },
-      "find_match_count_limit[one]": {
-        textContent: "More than {{limit}} match"
-      },
-      "find_match_count_limit[other]": {
-        textContent: "More than {{limit}} matches"
-      },
-      "find_match_count_limit[two]": {
-        textContent: "More than {{limit}} matches"
-      },
-      "find_match_count_limit[zero]": {
-        textContent: "More than {{limit}} matches"
-      },
-      find_match_count_limit: {
-        textContent: "{[ plural(limit) ]}"
-      },
-      "find_match_count[few]": {
-        textContent: "{{current}} of {{total}} matches"
-      },
-      "find_match_count[many]": {
-        textContent: "{{current}} of {{total}} matches"
-      },
-      "find_match_count[one]": {
-        textContent: "{{current}} of {{total}} match"
-      },
-      "find_match_count[other]": {
-        textContent: "{{current}} of {{total}} matches"
-      },
-      "find_match_count[two]": {
-        textContent: "{{current}} of {{total}} matches"
-      },
-      find_match_count: {
-        textContent: "{[ plural(total) ]}"
-      },
-      find_next_label: { textContent: "Next" },
-      find_next: {
-        title: "Find the next occurrence of the phrase"
-      },
-      find_not_found: { textContent: "Phrase not found" },
-      find_previous_label: { textContent: "Previous" },
-      find_previous: {
-        title: "Find the previous occurrence of the phrase"
-      },
-      find_reached_bottom: {
-        textContent: "Reached end of document, continued from top"
-      },
-      find_reached_top: {
-        textContent: "Reached top of document, continued from bottom"
-      },
-      findbar_label: { textContent: "Find" },
-      findbar: {
-        title: "Find in Document"
-      },
-      first_page_label: { textContent: "Go to First Page" },
-      first_page: {
-        label: "Go to First Page",
-        title: "Go to First Page"
-      },
-      invalid_file_error: { textContent: "Invalid or corrupted PDF file." },
-      last_page_label: { textContent: "Go to Last Page" },
-      last_page: {
-        title: "Go to Last Page"
-      },
-      loading_error_indicator: { textContent: "Error" },
-      loading_error: {
-        textContent: "An error occurred while loading the PDF."
-      },
-      missing_file_error: { textContent: "Missing PDF file." },
-      next_label: { textContent: "Next" },
-      next: {
-        title: "Next Page"
-      },
-      of_pages: { textContent: "of {{pagesCount}}" },
-      open_file_label: { textContent: "Open" },
-      open_file: {
-        title: "Open File"
-      },
-      page_canvas: { textContent: "Page {{page}}" },
-      page_of_pages: { textContent: "({{pageNumber}} of {{pagesCount}})" },
-      page_rotate_ccw_label: { textContent: "Rotate Counterclockwise" },
-      page_rotate_ccw: {
-        label: "Rotate Counterclockwise",
-        title: "Rotate Counterclockwise"
-      },
-      page_rotate_cw_label: { textContent: "Rotate Clockwise" },
-      page_rotate_cw: {
-        label: "Rotate Clockwise",
-        title: "Rotate Clockwise"
-      },
-      page_scale_actual: { textContent: "Actual Size" },
-      page_scale_auto: { textContent: "Automatic Zoom" },
-      page_scale_fit: { textContent: "Page Fit" },
-      page_scale_percent: { textContent: "{{scale}}%" },
-      page_scale_width: { textContent: "Page Width" },
-      page: {
-        title: "Page"
-      },
-      password_cancel: { textContent: "Cancel" },
-      password_invalid: { textContent: "Invalid password. Please try again." },
-      password_label: {
-        textContent: "Enter the password to open this PDF file."
-      },
-      password_ok: { textContent: "OK" },
-      presentation_mode_label: { textContent: "Presentation Mode" },
-      presentation_mode: {
-        title: "Switch to Presentation Mode"
-      },
-      previous_label: { textContent: "Previous" },
-      previous: {
-        title: "Previous Page"
-      },
-      print_label: { textContent: "Print" },
-      print_progress_close: { textContent: "Cancel" },
-      print_progress_message: {
-        textContent: "Preparing document for printing…"
-      },
-      print_progress_percent: { textContent: "{{progress}}%" },
-      print: {
-        title: "Print"
-      },
-      printing_not_ready: {
-        textContent: "Warning: The PDF is not fully loaded for printing."
-      },
-      printing_not_supported: {
-        textContent: "Warning: Printing is not fully supported by this browser."
-      },
-      rendering_error: {
-        textContent: "An error occurred while rendering the page."
-      },
-      scroll_horizontal_label: { textContent: "Horizontal Scrolling" },
-      scroll_horizontal: {
-        title: "Use Horizontal Scrolling"
-      },
-      scroll_vertical_label: { textContent: "Vertical Scrolling" },
-      scroll_vertical: {
-        title: "Use Vertical Scrolling"
-      },
-      scroll_wrapped_label: { textContent: "Wrapped Scrolling" },
-      scroll_wrapped: {
-        title: "Use Wrapped Scrolling"
-      },
-      spread_even_label: { textContent: "Even Spreads" },
-      spread_even: {
-        title: "Join page spreads starting with even-numbered pages"
-      },
-      spread_none_label: { textContent: "No Spreads" },
-      spread_none: {
-        title: "Do not join page spreads"
-      },
-      spread_odd_label: { textContent: "Odd Spreads" },
-      spread_odd: {
-        title: "Join page spreads starting with odd-numbered pages"
-      },
-      text_annotation_type: { alt: "[{{type}} Annotation]" },
-      thumb_page_canvas: { textContent: "Thumbnail of Page {{page}}" },
-      thumb_page_title: { textContent: "Page {{page}}" },
-      thumbs_label: { textContent: "Thumbnails" },
-      thumbs: {
-        title: "Show Thumbnails"
-      },
-      toggle_sidebar_label: { textContent: "Toggle Sidebar" },
-      toggle_sidebar_notification: {
-        title: "Toggle Sidebar (document contains outline/attachments)"
-      },
-      toggle_sidebar: {
-        title: "Toggle Sidebar"
-      },
-      tools_label: { textContent: "Tools" },
-      tools: {
-        title: "Tools"
-      },
-      unexpected_response_error: { textContent: "Unexpected server response." },
-      web_fonts_disabled: {
-        textContent: "Web fonts are disabled: unable to use embedded PDF fonts."
-      },
-      zoom_in_label: { textContent: "Zoom In" },
-      zoom_in: {
-        title: "Zoom In"
-      },
-      zoom_out_label: { textContent: "Zoom Out" },
-      zoom_out: {
-        title: "Zoom Out"
-      },
-      zoom: {
-        title: "Zoom"
-      }
-    }
-  }
-};
+    zh: {
+      'previous': { title: '上一页' },
+      'previous_label': { textContent: '上一页' },
+      'next': { title: '下一页' },
+      'next_label': { textContent: '下一页' },
+      'page': { title: '页面' },
+      'of_pages': { textContent: '/ {{pagesCount}}' },
+      'page_of_pages': { textContent: '({{pageNumber}} / {{pagesCount}})' },
+      'zoom_out': { title: '缩小' },
+      'zoom_out_label': { textContent: '缩小' },
+      'zoom_in': { title: '放大' },
+      'zoom_in_label': { textContent: '放大' },
+      'zoom': { title: '缩放' },
+      'presentation_mode': { title: '切换到演示模式' },
+      'presentation_mode_label': { textContent: '演示模式' },
+      'open_file': { title: '打开文件' },
+      'open_file_label': { textContent: '打开' },
+      'print': { title: '打印' },
+      'print_label': { textContent: '打印' },
+      'download': { title: '下载' },
+      'download_label': { textContent: '下载' },
+      'bookmark': { title: '当前在看的内容（复制或在新窗口中打开）' },
+      'bookmark_label': { textContent: '当前在看' },
+      'save': { title: '保存' },
+      'save_label': { textContent: '保存' },
+      'bookmark1': { title: '当前页面（在当前页面查看 URL）' },
+      'bookmark1_label': { textContent: '当前页面' },
+      'open_in_app': { title: '在应用中打开' },
+      'open_in_app_label': { textContent: '在应用中打开' },
+      'tools': { title: '工具' },
+      'tools_label': { textContent: '工具' },
+      'first_page': { title: '转到第一页' },
+      'first_page_label': { textContent: '转到第一页' },
+      'last_page': { title: '转到最后一页' },
+      'last_page_label': { textContent: '转到最后一页' },
+      'page_rotate_cw': { title: '顺时针旋转' },
+      'page_rotate_cw_label': { textContent: '顺时针旋转' },
+      'page_rotate_ccw': { title: '逆时针旋转' },
+      'page_rotate_ccw_label': { textContent: '逆时针旋转' },
+      'cursor_text_select_tool': { title: '启用文本选择工具' },
+      'cursor_text_select_tool_label': { textContent: '文本选择工具' },
+      'cursor_hand_tool': { title: '启用手形工具' },
+      'cursor_hand_tool_label': { textContent: '手形工具' },
+      'scroll_page': { title: '使用页面滚动' },
+      'scroll_page_label': { textContent: '页面滚动' },
+      'scroll_vertical': { title: '使用垂直滚动' },
+      'scroll_vertical_label': { textContent: '垂直滚动' },
+      'scroll_horizontal': { title: '使用水平滚动' },
+      'scroll_horizontal_label': { textContent: '水平滚动' },
+      'scroll_wrapped': { title: '使用平铺滚动' },
+      'scroll_wrapped_label': { textContent: '平铺滚动' },
+      'spread_none': { title: '不加入衔接页' },
+      'spread_none_label': { textContent: '单页视图' },
+      'spread_odd': { title: '加入衔接页使奇数页作为起始页' },
+      'spread_odd_label': { textContent: '双页视图' },
+      'spread_even': { title: '加入衔接页使偶数页作为起始页' },
+      'spread_even_label': { textContent: '书籍视图' },
+      'document_properties': { title: '文档属性…' },
+      'document_properties_label': { textContent: '文档属性…' },
+      'document_properties_file_name': { textContent: '文件名:' },
+      'document_properties_file_size': { textContent: '文件大小:' },
+      'document_properties_kb': { textContent: '{{size_kb}} KB ({{size_b}} 字节)' },
+      'document_properties_mb': { textContent: '{{size_mb}} MB ({{size_b}} 字节)' },
+      'document_properties_title': { textContent: '标题:' },
+      'document_properties_author': { textContent: '作者:' },
+      'document_properties_subject': { textContent: '主题:' },
+      'document_properties_keywords': { textContent: '关键词:' },
+      'document_properties_creation_date': { textContent: '创建日期:' },
+      'document_properties_modification_date': { textContent: '修改日期:' },
+      'document_properties_date_string': { textContent: '{{date}}, {{time}}' },
+      'document_properties_creator': { textContent: '创建者:' },
+      'document_properties_producer': { textContent: 'PDF 生成器：' },
+      'document_properties_version': { textContent: 'PDF 版本:' },
+      'document_properties_page_count': { textContent: '页数:' },
+      'document_properties_page_size': { textContent: '页面大小：' },
+      'document_properties_page_size_unit_inches': { textContent: '英寸' },
+      'document_properties_page_size_unit_millimeters': { textContent: '毫米' },
+      'document_properties_page_size_orientation_portrait': { textContent: '纵向' },
+      'document_properties_page_size_orientation_landscape': { textContent: '横向' },
+      'document_properties_page_size_name_a3': { textContent: 'A3' },
+      'document_properties_page_size_name_a4': { textContent: 'A4' },
+      'document_properties_page_size_name_letter': { textContent: '文本' },
+      'document_properties_page_size_name_legal': { textContent: '法律' },
+      'document_properties_page_size_dimension_string': { textContent: '{{width}} × {{height}} {{unit}}（{{orientation}}）' },
+      'document_properties_page_size_dimension_name_string': { textContent: '{{width}} × {{height}} {{unit}}（{{name}}，{{orientation}}）' },
+      'document_properties_linearized': { textContent: '快速 Web 视图：' },
+      'document_properties_linearized_yes': { textContent: '是' },
+      'document_properties_linearized_no': { textContent: '否' },
+      'document_properties_close': { textContent: '关闭' },
+      'print_progress_message': { textContent: '正在准备打印文档…' },
+      'print_progress_percent': { textContent: '{{progress}}%' },
+      'print_progress_close': { textContent: '取消' },
+      'toggle_sidebar': { title: '切换侧栏' },
+      'toggle_sidebar_notification2': { title: '切换侧栏（文档所含的大纲/附件/图层）' },
+      'toggle_sidebar_label': { textContent: '切换侧栏' },
+      'document_outline': { title: '显示文档大纲（双击展开/折叠所有项）' },
+      'document_outline_label': { textContent: '文档大纲' },
+      'attachments': { title: '显示附件' },
+      'attachments_label': { textContent: '附件' },
+      'layers': { title: '显示图层（双击即可将所有图层重置为默认状态）' },
+      'layers_label': { textContent: '图层' },
+      'thumbs': { title: '显示缩略图' },
+      'thumbs_label': { textContent: '缩略图' },
+      'current_outline_item': { title: '查找当前大纲项目' },
+      'current_outline_item_label': { textContent: '当前大纲项目' },
+      'findbar': { title: '在文档中查找' },
+      'findbar_label': { textContent: '查找' },
+      'additional_layers': { textContent: '其他图层' },
+      'page_landmark': { textContent: '第 {{page}} 页' },
+      'thumb_page_title': { textContent: '第 {{page}} 页' },
+      'thumb_page_canvas': { textContent: '页面 {{page}} 的缩略图' },
+      'find_input': { title: '查找', placeholder: '在文档中查找…' },
+      'find_previous': { title: '查找词语上一次出现的位置' },
+      'find_previous_label': { textContent: '上一页' },
+      'find_next': { title: '查找词语后一次出现的位置' },
+      'find_next_label': { textContent: '下一页' },
+      'find_highlight': { textContent: '全部高亮显示' },
+      'find_match_case_label': { textContent: '区分大小写' },
+      'find_match_diacritics_label': { textContent: '匹配变音符号' },
+      'find_entire_word_label': { textContent: '全词匹配' },
+      'find_reached_top': { textContent: '到达文档开头，从末尾继续' },
+      'find_reached_bottom': { textContent: '到达文档末尾，从开头继续' },
+      'find_match_count': { textContent: '{[ plural(total) ]}' },
+      'find_match_count[one]': { textContent: '第 {{current}} 项，共匹配 {{total}} 项' },
+      'find_match_count[two]': { textContent: '第 {{current}} 项，共匹配 {{total}} 项' },
+      'find_match_count[few]': { textContent: '第 {{current}} 项，共匹配 {{total}} 项' },
+      'find_match_count[many]': { textContent: '第 {{current}} 项，共匹配 {{total}} 项' },
+      'find_match_count[other]': { textContent: '第 {{current}} 项，共匹配 {{total}} 项' },
+      'find_match_count_limit': { textContent: '{[ plural(limit) ]}' },
+      'find_match_count_limit[zero]': { textContent: '超过 {{limit}} 项匹配' },
+      'find_match_count_limit[one]': { textContent: '超过 {{limit}} 项匹配' },
+      'find_match_count_limit[two]': { textContent: '超过 {{limit}} 项匹配' },
+      'find_match_count_limit[few]': { textContent: '超过 {{limit}} 项匹配' },
+      'find_match_count_limit[many]': { textContent: '超过 {{limit}} 项匹配' },
+      'find_match_count_limit[other]': { textContent: '超过 {{limit}} 项匹配' },
+      'find_not_found': { textContent: '找不到指定词语' },
+      'error_more_info': { textContent: '更多信息' },
+      'error_less_info': { textContent: '更少信息' },
+      'error_close': { textContent: '关闭' },
+      'error_version_info': { textContent: 'PDF.js v{{version}} (build: {{build}})' },
+      'error_message': { textContent: '信息：{{message}}' },
+      'error_stack': { textContent: '堆栈：{{stack}}' },
+      'error_file': { textContent: '文件：{{file}}' },
+      'error_line': { textContent: '行号：{{line}}' },
+      'page_scale_width': { textContent: '适合页宽' },
+      'page_scale_fit': { textContent: '适合页面' },
+      'page_scale_auto': { textContent: '自动缩放' },
+      'page_scale_actual': { textContent: '实际大小' },
+      'page_scale_percent': { textContent: '{{scale}}%' },
+      'loading': { textContent: '正在加载…' },
+      'loading_error': { textContent: '加载 PDF 时发生错误。' },
+      'invalid_file_error': { textContent: '无效或损坏的 PDF 文件。' },
+      'missing_file_error': { textContent: '缺少 PDF 文件。' },
+      'unexpected_response_error': { textContent: '意外的服务器响应。' },
+      'rendering_error': { textContent: '渲染页面时发生错误。' },
+      'annotation_date_string': { textContent: '{{date}}，{{time}}' },
+      'text_annotation_type': { alt: '[{{type}} 注释]' },
+      'password_label': { textContent: '输入密码以打开此 PDF 文件。' },
+      'password_invalid': { textContent: '密码无效。请重试。' },
+      'password_ok': { textContent: '确定' },
+      'password_cancel': { textContent: '取消' },
+      'printing_not_supported': { textContent: '警告：此浏览器尚未完整支持打印功能。' },
+      'printing_not_ready': { textContent: '警告：此 PDF 未完成加载，无法打印。' },
+      'web_fonts_disabled': { textContent: 'Web 字体已被禁用：无法使用嵌入的 PDF 字体。' },
+      'editor_free_text2': { title: '文本' },
+      'editor_free_text2_label': { textContent: '文本' },
+      'editor_ink2': { title: '绘图' },
+      'editor_ink2_label': { textContent: '绘图' },
+      'free_text2_default_content': { textContent: '开始输入…' },
+      'editor_free_text_color': { textContent: '颜色' },
+      'editor_free_text_size': { textContent: '字号' },
+      'editor_ink_color': { textContent: '颜色' },
+      'editor_ink_thickness': { textContent: '粗细' },
+      'editor_ink_opacity': { textContent: '不透明度' },
+      'editor_free_text2_aria_label': { textContent: '文本编辑器' },
+      'editor_ink2_aria_label': { textContent: '绘图编辑器' },
+      'editor_ink_canvas_aria_label': { textContent: '用户创建图像' },
+    },
+  },
+}

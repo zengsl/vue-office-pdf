@@ -19,12 +19,14 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
-    extensions: ['.mjs', '.js', '.ts', '.vue'],
+    extensions: ['.js', '.ts'],
   },
   build: {
+    cssCodeSplit: true,
     lib: {
       entry: './src/index.ts',
       formats: ['cjs', 'es'],
+      name: 'VuePdf',
       fileName: format => `index.${format}.js`,
     },
     rollupOptions: {

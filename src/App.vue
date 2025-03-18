@@ -15,7 +15,7 @@
       </router-link>|
       <router-link to="/pdf-test-Dialog">
         Pdf-Test-Dialog
-      </router-link>|
+      </router-link>
     </div>
     <router-view />
   </div>

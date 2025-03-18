@@ -1,6 +1,8 @@
 # Vue3 Pdf App
 
-Vue 3 PDF viewer based on Mozilla's PDFJS. Forked from https://github.com/sandanat/vue-pdf-app.
+Vue 3 PDF viewer based on Mozilla's PDFJS and built with vite. Forked from https://github.com/stellR42/vue3-pdf-app.
+
+Chinese is the default language for panel.
 
 [![npm (tag)](https://img.shields.io/npm/v/vue3-pdf-app/latest)](https://www.npmjs.com/package/vue3-pdf-app)
 
@@ -836,3 +838,7 @@ export default {
 };
 </script>
 ```
+
+## TODO
+
+- [ ] Use 'link' tag to load localize properties in a dialog, it can't render the pdf when you open it at the second time. See the demo `PdfPreviewDialog.vue`

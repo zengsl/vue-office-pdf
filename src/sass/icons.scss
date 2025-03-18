@@ -13,7 +13,7 @@
 .vue-pdf-app-icon {
   &::before,
   &::after {
-    font-family: "pdf";
+    font-family: "pdf", serif;
     font-size: 1.1rem;
     display: inline;
     text-decoration: inherit;

@@ -5,7 +5,9 @@ import { ref } from 'vue'
 const isShow = ref(false)
 const pdf = ref<any>(null)
 
-fetch('http://localhost:3050/pdf').then((res) => {
+/* fetch('http://localhost:3050/pdf').then((res) => { */
+
+fetch('/sample.pdf').then((res) => {
   return res.blob()
 }).then((blob) => {
   return blob.arrayBuffer()
@@ -38,6 +40,7 @@ defineExpose({ previewPdf })
 
 <template>
   <el-dialog v-model="isShow" destroy-on-close @close="doClose">
+    <!-- 引入之后，只有第一次能正常打开PDF   -->
     <link rel="resource" type="application/l10n" href="/pdfjs/locale/zh-CN/viewer.properties">
     <PdfViewer
       :pdf="pdf"

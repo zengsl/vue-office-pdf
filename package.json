@@ -1,15 +1,14 @@
 {
-  "name": "vue-pdf-viewer",
-  "version": "0.0.1",
-  "description": "A pdfjs Vue 3 component library built with Vite.",
+  "name": "vue-office-pdf",
+  "version": "0.0.1-beta",
+  "description": "Vue 3 PDF viewer based on Mozilla's PDFJS and built with Vite.",
   "type": "module",
   "types": "./dist/types",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "files": [
-    "dist/index.cjs.js",
-    "dist/index.es.js",
-    "dist/style.css",
+    "dist/index.*.js",
+    "dist/*.css",
     "dist/pdfjs/*",
     "dist/types/*"
   ],
@@ -22,7 +21,7 @@
     "viewer"
   ],
   "author": "zzz",
-  "homepage": "https://github.com/zengsl/vue3-pdf-app#readme",
+  "homepage": "https://github.com/zengsl/vue-office-pdf#readme",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
