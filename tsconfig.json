@@ -9,9 +9,13 @@
     },
     {
       "path": "./tsconfig.vitest.json"
+    },
+    {
+      "path": "./tsconfig.build.json"
     }
   ],
   "compilerOptions": {
+    "emitDeclarationOnly": true, // 仅生成声明文件，不编译 JS,
     "allowImportingTsExtensions": true,
     "moduleResolution": "bundler"
   }

@@ -1006,8 +1006,8 @@
 
 <script lang="ts">
 import '@/pdfjs-dist/es5/build/pdf'
-import * as pdfApp from '@/pdfjs-dist/lib/web/app'
-import { AppOptions } from '@/pdfjs-dist/lib/web/app_options'
+import * as pdfApp from '@/pdfjs-dist/lib/web/app.js'
+import { AppOptions } from '@/pdfjs-dist/lib/web/app_options.js'
 import '@/pdfjs-dist/lib/web/genericcom'
 import '@/pdfjs-dist/lib/web/pdf_print_service'
 import '@/pdfjs-dist/build/pdf.worker.entry'

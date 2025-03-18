@@ -5,7 +5,7 @@ import PdfViewer from "@/components/pdf-viewer.vue";
 import {ref} from "vue";
 
 const isShow = ref(false)
-const pdf = ref(null)
+const pdf = ref<any>(null)
 
 fetch('http://localhost:3050/pdf').then(res => {
   return res.blob()
@@ -15,7 +15,7 @@ fetch('http://localhost:3050/pdf').then(res => {
   pdf.value = buffer
 })
 
-function afterCreated(pdfApp) {
+function afterCreated(pdfApp:any) {
   console.log('===***=== After created')
 }
 

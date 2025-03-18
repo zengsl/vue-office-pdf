@@ -1,13 +1,13 @@
 <script setup lang="ts">
-
-
 import {ref} from "vue";
 import PdfPreviewDialog from "@/views/PdfPreviewDialog.vue";
 
-const pdfPreviewRef = ref<InstanceType<typeof PdfPreviewDialog>>(null)
-
+const pdfPreviewRef = ref<InstanceType<typeof PdfPreviewDialog> | null>(null)
 function openPdf(){
-  pdfPreviewRef.value.previewPdf()
+  if(!pdfPreviewRef.value) {
+    console.warn('pdfPreviewRef.value is null')
+  }
+  pdfPreviewRef.value?.previewPdf()
 }
 </script>
 

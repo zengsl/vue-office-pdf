@@ -1,7 +1,6 @@
 import PdfViewer from './components/pdf-viewer.vue'
-// import AboutView from './components/about-view.vue'
 
-import type {App, Component} from 'vue'
+import type {App} from 'vue'
 
 const components = [
     PdfViewer
@@ -9,7 +8,9 @@ const components = [
 
 export function install(app: App) {
     components.forEach(component => {
-        app.component(component.name, component)
+        if (component.name != null) {
+            app.component(component.name, component)
+        }
     })
 }
 
