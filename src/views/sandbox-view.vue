@@ -2,52 +2,52 @@
   <div style="height: 90%">
     <div class="action-bar">
       <a :id="idConfig.viewBookmark">Current view</a>
-      <span class="divider"></span>
+      <span class="divider" />
       <button
         :id="idConfig.zoomIn"
         type="button"
         class="action-btn"
         title="Zoom in"
       >
-        <span class="mdi mdi-plus-circle-outline"></span>
+        <span class="mdi mdi-plus-circle-outline" />
       </button>
-      <span class="divider"></span>
+      <span class="divider" />
       <button
         :id="idConfig.zoomOut"
         type="button"
         class="action-btn"
         title="Zoom out"
       >
-        <span class="mdi mdi-minus-circle-outline"></span>
+        <span class="mdi mdi-minus-circle-outline" />
       </button>
-      <span class="divider"></span>
+      <span class="divider" />
       <button
         :id="idConfig.download"
         class="action-btn"
         type="button"
         title="Download"
       >
-        <span class="mdi mdi-download-circle-outline"></span>
+        <span class="mdi mdi-download-circle-outline" />
       </button>
-      <span class="divider"></span>
+      <span class="divider" />
       <input
         :id="idConfig.pageNumber"
         type="number"
         name="pageNumber"
         style="width: 40px"
-      />
-      <span class="divider"></span>
-      <span :id="idConfig.numPages"></span>
+      >
+      <span class="divider" />
+      <span :id="idConfig.numPages" />
       <span> pages</span>
     </div>
-    <pdf-viewer
+    <PdfViewer
       :pdf="pdf"
       :config="{ toolbar: false }"
       :id-config="idConfig"
+      style="position: relative"
       @after-created="afterCreated"
       @open="open"
       @pages-rendered="pagesRendered"
-      style="position: relative"
     >
       <template #viewer-header>
         <div class="viewer-header">
@@ -57,34 +57,34 @@
             type="button"
             title="Open file"
           >
-            <span class="mdi mdi-file-upload-outline"></span>
+            <span class="mdi mdi-file-upload-outline" />
           </button>
-          <span class="divider"></span>
+          <span class="divider" />
           <button
             :id="idConfig.print"
             class="action-btn"
             type="button"
             title="Print"
           >
-            <span class="mdi mdi-printer"></span>
+            <span class="mdi mdi-printer" />
           </button>
-          <span class="divider"></span>
+          <span class="divider" />
           <button
             :id="idConfig.presentationMode"
             class="action-btn"
             type="button"
             title="Presentation mode"
           >
-            <span class="mdi mdi-presentation"></span>
+            <span class="mdi mdi-presentation" />
           </button>
-          <span class="divider"></span>
+          <span class="divider" />
           <button
             :id="idConfig.toggleFindbar"
             class="action-btn"
             type="button"
             title="Toggle findbar"
           >
-            <span class="mdi mdi-magnify"></span>
+            <span class="mdi mdi-magnify" />
           </button>
         </div>
       </template>
@@ -96,47 +96,47 @@
             type="button"
             title="First page"
           >
-            <span class="mdi mdi-skip-backward"></span>
+            <span class="mdi mdi-skip-backward" />
           </button>
-          <span class="v-divider"></span>
+          <span class="v-divider" />
           <button
             :id="idConfig.previousPage"
             class="action-btn"
             type="button"
             title="Previous page"
           >
-            <span class="mdi mdi-skip-previous"></span>
+            <span class="mdi mdi-skip-previous" />
           </button>
-          <span class="v-divider"></span>
+          <span class="v-divider" />
           <button
             :id="idConfig.nextPage"
             class="action-btn"
             type="button"
             title="Next page"
           >
-            <span class="mdi mdi-skip-next"></span>
+            <span class="mdi mdi-skip-next" />
           </button>
-          <span class="v-divider"></span>
+          <span class="v-divider" />
           <button
             :id="idConfig.lastPage"
             class="action-btn"
             type="button"
             title="Last page"
           >
-            <span class="mdi mdi-skip-forward"></span>
+            <span class="mdi mdi-skip-forward" />
           </button>
           <!-- don't use v-if here -->
           <!-- otherwise got an error -->
-          <span class="v-divider"></span>
+          <span class="v-divider" />
           <button
             :id="idConfig.sidebarToggle"
             class="action-btn"
             type="button"
             title="Toggle sidebar"
           >
-            <span class="mdi mdi-page-layout-sidebar-left"></span>
+            <span class="mdi mdi-page-layout-sidebar-left" />
           </button>
-          <span class="v-divider"></span>
+          <span class="v-divider" />
           <div v-show="!isSidebarHidden">
             <button
               :id="idConfig.viewThumbnail"
@@ -144,25 +144,25 @@
               type="button"
               title="Thumbnail view"
             >
-              <span class="mdi mdi-file-image"></span>
+              <span class="mdi mdi-file-image" />
             </button>
-            <span class="v-divider"></span>
+            <span class="v-divider" />
             <button
               :id="idConfig.viewOutline"
               class="action-btn"
               type="button"
               title="Outline view"
             >
-              <span class="mdi mdi-table-of-contents"></span>
+              <span class="mdi mdi-table-of-contents" />
             </button>
-            <span class="v-divider"></span>
+            <span class="v-divider" />
             <button
               :id="idConfig.viewAttachments"
               class="action-btn"
               type="button"
               title="Attachments view"
             >
-              <span class="mdi mdi-paperclip"></span>
+              <span class="mdi mdi-paperclip" />
             </button>
           </div>
         </div>
@@ -176,52 +176,52 @@
               type="button"
               title="Hand tool"
             >
-              <span class="mdi mdi-hand-right"></span>
+              <span class="mdi mdi-hand-right" />
             </button>
-            <span class="divider"></span>
+            <span class="divider" />
             <button
               :id="idConfig.cursorSelectTool"
               class="action-btn"
               type="button"
               title="Select tool"
             >
-              <span class="mdi mdi-cursor-text"></span>
+              <span class="mdi mdi-cursor-text" />
             </button>
-            <span class="divider"></span>
+            <span class="divider" />
             <button
               :id="idConfig.documentProperties"
               class="action-btn"
               type="button"
               title="Document properties"
             >
-              <span class="mdi mdi-alert-circle-outline"></span>
+              <span class="mdi mdi-alert-circle-outline" />
             </button>
-            <span class="divider"></span>
+            <span class="divider" />
             <button
               :id="idConfig.scrollVertical"
               class="action-btn"
               type="button"
               title="Scroll vertical"
             >
-              <span class="mdi mdi-arrow-expand-vertical"></span>
+              <span class="mdi mdi-arrow-expand-vertical" />
             </button>
-            <span class="divider"></span>
+            <span class="divider" />
             <button
               :id="idConfig.scrollWrapped"
               class="action-btn"
               type="button"
               title="Scroll wrapped"
             >
-              <span class="mdi mdi-view-dashboard"></span>
+              <span class="mdi mdi-view-dashboard" />
             </button>
-            <span class="divider"></span>
+            <span class="divider" />
             <button
               :id="idConfig.scrollHorizontal"
               class="action-btn"
               type="button"
               title="Scroll horizontal"
             >
-              <span class="mdi mdi-arrow-expand-horizontal"></span>
+              <span class="mdi mdi-arrow-expand-horizontal" />
             </button>
           </div>
           <div>
@@ -231,43 +231,43 @@
               type="button"
               title="Rotate counterclockwise"
             >
-              <span class="mdi mdi-rotate-left"></span>
+              <span class="mdi mdi-rotate-left" />
             </button>
-            <span class="divider"></span>
+            <span class="divider" />
             <button
               :id="idConfig.pageRotateCw"
               class="action-btn"
               type="button"
               title="Rotate clockwise"
             >
-              <span class="mdi mdi-rotate-right"></span>
+              <span class="mdi mdi-rotate-right" />
             </button>
-            <span class="divider"></span>
+            <span class="divider" />
             <button
               :id="idConfig.spreadEven"
               class="action-btn"
               type="button"
               title="Spread even"
             >
-              <span class="mdi mdi-numeric-2-circle-outline"></span>
+              <span class="mdi mdi-numeric-2-circle-outline" />
             </button>
-            <span class="divider"></span>
+            <span class="divider" />
             <button
               :id="idConfig.spreadNone"
               class="action-btn"
               type="button"
               title="Spread none"
             >
-              <span class="mdi mdi-view-agenda-outline"></span>
+              <span class="mdi mdi-view-agenda-outline" />
             </button>
-            <span class="divider"></span>
+            <span class="divider" />
             <button
               :id="idConfig.spreadOdd"
               class="action-btn"
               type="button"
               title="Spread odd"
             >
-              <span class="mdi mdi-numeric-1-circle-outline"></span>
+              <span class="mdi mdi-numeric-1-circle-outline" />
             </button>
           </div>
           <div
@@ -275,53 +275,53 @@
             :id="idConfig.findbar"
             class="vue-pdf-app-findbar"
           >
-            <input :id="idConfig.findInput" type="text" />
-            <span class="divider"></span>
+            <input :id="idConfig.findInput" type="text">
+            <span class="divider" />
             <button
               :id="idConfig.findPrevious"
               class="action-btn"
               title="Find previous"
             >
-              <span class="mdi mdi-arrow-left-thick"></span>
+              <span class="mdi mdi-arrow-left-thick" />
             </button>
-            <span class="divider"></span>
+            <span class="divider" />
             <button
               :id="idConfig.findNext"
               class="action-btn"
               title="Find next"
             >
-              <span class="mdi mdi-arrow-right-thick"></span>
+              <span class="mdi mdi-arrow-right-thick" />
             </button>
-            <span class="divider"></span>
-            <input :id="idConfig.findHighlightAll" type="checkbox" />
+            <span class="divider" />
+            <input :id="idConfig.findHighlightAll" type="checkbox">
             <label :for="idConfig.findHighlightAll">Highlight all</label>
-            <span class="divider"></span>
-            <input :id="idConfig.findMatchCase" type="checkbox" />
+            <span class="divider" />
+            <input :id="idConfig.findMatchCase" type="checkbox">
             <label :for="idConfig.findMatchCase">Match case</label>
-            <span class="divider"></span>
-            <input :id="idConfig.findEntireWord" type="checkbox" />
+            <span class="divider" />
+            <input :id="idConfig.findEntireWord" type="checkbox">
             <label :for="idConfig.findEntireWord">Entire word</label>
-            <span class="divider"></span>
-            <span :id="idConfig.findMessage"></span>
-            <span class="divider"></span>
-            <span :id="idConfig.findResultsCount"></span>
+            <span class="divider" />
+            <span :id="idConfig.findMessage" />
+            <span class="divider" />
+            <span :id="idConfig.findResultsCount" />
           </div>
         </div>
       </template>
-    </pdf-viewer>
+    </PdfViewer>
   </div>
 </template>
 
 <script lang="ts">
-import '@mdi/font/css/materialdesignicons.css'
 import PdfViewer from '@/components/pdf-viewer.vue'
 import { defineComponent } from 'vue'
+import '@mdi/font/css/materialdesignicons.css'
 
 export default defineComponent({
   components: {
-    PdfViewer
+    PdfViewer,
   },
-  data () {
+  data() {
     return {
       idConfig: {
         cursorHandTool: 'vuePdfAppCursorHandTool',
@@ -361,26 +361,26 @@ export default defineComponent({
         viewOutline: 'vuePdfAppViewOutline',
         viewThumbnail: 'vuePdfAppViewThumbnail',
         zoomIn: 'vuePdfAppZoomIn',
-        zoomOut: 'vuePdfAppZoomOut'
+        zoomOut: 'vuePdfAppZoomOut',
       },
-      pdf: 'sample.pdf'
+      pdf: 'sample.pdf',
     }
   },
   methods: {
-    afterCreated (pdfApp) {
+    afterCreated(pdfApp) {
       // window._pdfApp = pdfApp
       console.log('===***=== After created')
     },
-    open () {
+    open() {
       console.log('===***=== Opened')
     },
-    pagesRendered () {
+    pagesRendered() {
       console.log('===***=== Pages rendered')
     },
-    togglePdf () {
+    togglePdf() {
       this.pdf = !this.pdf ? 'sample.pdf' : null
-    }
-  }
+    },
+  },
 })
 </script>
 

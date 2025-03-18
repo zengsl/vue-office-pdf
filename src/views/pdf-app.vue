@@ -1,19 +1,19 @@
 <template>
-  <pdf-viewer
+  <PdfViewer
     :pdf="pdf"
     :page-number="2"
+    file-name="Custom fileName"
+    style="position: relative"
     @after-created="afterCreated"
     @open="open"
     @pages-rendered="pagesRendered"
-    file-name="Custom fileName"
-    style="position: relative"
   >
     <template #footer>
       <div class="footer">
         <span>Footer</span>
       </div>
     </template>
-  </pdf-viewer>
+  </PdfViewer>
 </template>
 
 <script lang="ts">
@@ -22,9 +22,9 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   components: {
-    PdfViewer
+    PdfViewer,
   },
-  data () {
+  data() {
     return {
       config: {
         // toolbar: {
@@ -34,21 +34,21 @@ export default defineComponent({
         // },
       },
       scale: '1',
-      pdf: '/sample.pdf'
+      pdf: '/sample.pdf',
     }
   },
   methods: {
-    afterCreated (pdfApp) {
+    afterCreated(pdfApp) {
       // window._pdfApp = pdfApp
       console.log('===***=== After created')
     },
-    open () {
+    open() {
       console.log('===***=== Opened')
     },
-    pagesRendered () {
+    pagesRendered() {
       console.log('===***=== Pages rendered')
-    }
-  }
+    },
+  },
 })
 </script>
 

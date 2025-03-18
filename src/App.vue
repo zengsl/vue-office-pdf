@@ -1,34 +1,41 @@
 <template>
   <div id="app">
-    <button @click="toggleDirection" type="button">
+    <button type="button" @click="toggleDirection">
       Toggle web--page direction
     </button>
-    <button @click="clearCache">clear cache</button>
+    <button @click="clearCache">
+      clear cache
+    </button>
     <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/theme-toggling">Theme toggling</router-link>|
-      <router-link to="/pdf-test-Dialog">Pdf-Test-Dialog</router-link>|
-      <router-link to="/about">About</router-link>
+      <router-link to="/">
+        Home
+      </router-link>|
+      <router-link to="/theme-toggling">
+        Theme toggling
+      </router-link>|
+      <router-link to="/pdf-test-Dialog">
+        Pdf-Test-Dialog
+      </router-link>|
     </div>
     <router-view />
   </div>
 </template>
 
 <script lang="ts">
-import '@/sass/icons.scss'
 import { defineComponent } from 'vue'
+import '@/sass/icons.scss'
 
 export default defineComponent({
   methods: {
-    toggleDirection () {
+    toggleDirection() {
       const dir = document.documentElement.getAttribute('dir')
       const newDir = dir === 'rtl' ? 'ltr' : 'rtl'
       document.documentElement.setAttribute('dir', newDir)
     },
-    clearCache () {
+    clearCache() {
       window.localStorage.clear()
-    }
-  }
+    },
+  },
 })
 </script>
 

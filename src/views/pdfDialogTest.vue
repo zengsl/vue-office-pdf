@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import {ref} from "vue";
-import PdfPreviewDialog from "@/views/PdfPreviewDialog.vue";
+import PdfPreviewDialog from '@/views/PdfPreviewDialog.vue'
+import { ref } from 'vue'
 
 const pdfPreviewRef = ref<InstanceType<typeof PdfPreviewDialog> | null>(null)
-function openPdf(){
-  if(!pdfPreviewRef.value) {
+function openPdf() {
+  if (!pdfPreviewRef.value) {
     console.warn('pdfPreviewRef.value is null')
   }
   pdfPreviewRef.value?.previewPdf()
@@ -12,8 +12,10 @@ function openPdf(){
 </script>
 
 <template>
-  <el-button @click="openPdf">查看PDF</el-button>
-  <PdfPreviewDialog ref="pdfPreviewRef"/>
+  <el-button @click="openPdf">
+    查看PDF
+  </el-button>
+  <PdfPreviewDialog ref="pdfPreviewRef" />
 </template>
 
 <style scoped lang="scss">

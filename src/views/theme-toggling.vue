@@ -1,18 +1,17 @@
 <template>
-  <vue-pdf-app pdf="sample.pdf" style="position: relative"
-  >
+  <VuePdfApp pdf="sample.pdf" style="position: relative">
     <template #footer="{ toggleTheme }">
       <div class="footer">
         <span>This is a footer</span>
         <button
-          @click="toggleTheme"
           class="vue-pdf-app-icon theme-toggle"
           type="button"
           title="Toggle theme"
-        ></button>
+          @click="toggleTheme"
+        />
       </div>
     </template>
-  </vue-pdf-app>
+  </VuePdfApp>
 </template>
 
 <script lang="ts">
@@ -22,13 +21,13 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'ThemeToggling',
   components: {
-    VuePdfApp
+    VuePdfApp,
   },
-  data () {
+  data() {
     return {
-      theme: 'dark'
+      theme: 'dark',
     }
-  }
+  },
 })
 </script>
 
