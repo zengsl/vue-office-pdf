@@ -41,7 +41,9 @@ defineExpose({ previewPdf })
 <template>
   <el-dialog v-model="isShow" destroy-on-close @close="doClose">
     <!-- 引入之后，只有第一次能正常打开PDF   -->
+    <!--
     <link rel="resource" type="application/l10n" href="/pdfjs/locale/zh-CN/viewer.properties">
+-->
     <PdfViewer
       :pdf="pdf"
       :style="{ height: '70vh' }"
@@ -50,7 +52,13 @@ defineExpose({ previewPdf })
       @after-created="afterCreated"
       @open="open"
       @pages-rendered="pagesRendered"
-    />
+    >
+      <template #toolbar-left-prepend="{ toggleTheme }">
+        <button type="button" @click="toggleTheme">
+          Toggle theme
+        </button>
+      </template>
+    </PdfViewer>
   </el-dialog>
 </template>
 
