@@ -4,7 +4,7 @@ Vue 3 PDF viewer based on Mozilla's PDFJS and built with vite. Forked from https
 
 Chinese is the default language for panel.
 
-[![npm (tag)](https://img.shields.io/npm/v/vue3-pdf-app/latest)](https://www.npmjs.com/package/vue3-pdf-app)
+[![npm (tag)](https://img.shields.io/npm/v/vue-office-pdf)](https://www.npmjs.com/package/vue-office-pdf)
 
 100% PDFJS functionality:
 
@@ -34,9 +34,9 @@ Built-in typescript support
 
 ![pdf sample](./readme/sample.png "Pdf expample")
 
-[Live demo](https://codesandbox.io/s/vue3-pdf-app-wnh9zs?file=/src/App.vue)
+[Live demo](https://codesandbox.io/p/github/zengsl/vue-office-pdf/feature-vite?import=true)
 
-[FAQ](https://github.com/stellr42/vue3-pdf-app/blob/master/FAQ.md)
+[FAQ](https://github.com/zengsl/vue-office-pdf/blob/feature-vite/FAQ.md)
 
 ## Installation
 ```
@@ -709,7 +709,7 @@ Colors of the pdf viewer are customized via custom css properties:
 
 ## Icons customization
 
-To use default icons `import "vue3-pdf-app/dist/icons/main.css";`.
+To use default icons `import 'vue-office-pdf/dist/index.css'`.
 
 To use custom icons you have to implement [icons.css](https://github.com/sandanat/vue-pdf-app/blob/master/src/sass/icons.scss):
 
