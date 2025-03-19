@@ -6,7 +6,9 @@
   --pdf-toolbar-sidebar-color: #{$pdf-toolbar-sidebar-color};
   --pdf-toolbar-color: #{$pdf-toolbar-color};
   --pdf-loading-bar-color: #{$pdf-loading-bar-color};
-  --pdf-loading-bar-secondary-color: #{$pdf-loading-bar-secondary-color};
+  --pdf-loading-bar-secondary-color1: #{$pdf-loading-bar-secondary-color1};
+  --pdf-loading-bar-secondary-color2: #{$pdf-loading-bar-secondary-color2};
+  --pdf-loading-bar-secondary-color3: #{$pdf-loading-bar-secondary-color3};
   --pdf-find-results-count-color: #{$pdf-find-results-count-color};
   --pdf-find-results-count-font-color: #{$pdf-find-results-count-font-color};
   --pdf-find-message-font-color: #{$pdf-find-message-font-color};
@@ -18,7 +20,7 @@
   --pdf-horizontal-toolbar-separator-color: #{$pdf-horizontal-toolbar-separator-color};
   --pdf-input-color: #{$pdf-input-color};
   --pdf-input-font-color: #{$pdf-input-font-color};
-  --pdf-find-input-placeholder-font-color: #{$pdf-find-input-placeholder-font-color};
+  //--pdf-find-input-placeholder-font-color: #{$pdf-find-input-placeholder-font-color};
   --pdf-thumbnail-selection-ring-color: #{$pdf-thumbnail-selection-ring-color};
   --pdf-thumbnail-selection-ring-selected-color: #{$pdf-thumbnail-selection-ring-selected-color};
   --pdf-error-wrapper-color: #{$pdf-error-wrapper-color};
@@ -38,7 +40,12 @@
   --pdf-toolbar-sidebar-color: #{$pdf-toolbar-sidebar-color-light};
   --pdf-toolbar-color: #{$pdf-toolbar-color-light};
   --pdf-loading-bar-color: #{$pdf-loading-bar-color-light};
-  --pdf-loading-bar-secondary-color: #{$pdf-loading-bar-secondary-color-light};
+  /*
+  --pdf-loading-bar-secondary-color: #{$pdf-loading-bar-secondary-color1-light};
+  */
+  --pdf-loading-bar-secondary-color1: #{$pdf-loading-bar-secondary-color1-light};
+  --pdf-loading-bar-secondary-color2: #{$pdf-loading-bar-secondary-color2-light};
+  --pdf-loading-bar-secondary-color3: #{$pdf-loading-bar-secondary-color3-light};
   --pdf-find-results-count-color: #{$pdf-find-results-count-color-light};
   --pdf-find-results-count-font-color: #{$pdf-find-results-count-font-color-light};
   --pdf-find-message-font-color: #{$pdf-find-message-font-color-light};
@@ -50,7 +57,7 @@
   --pdf-horizontal-toolbar-separator-color: #{$pdf-horizontal-toolbar-separator-color-light};
   --pdf-input-color: #{$pdf-input-color-light};
   --pdf-input-font-color: #{$pdf-input-font-color-light};
-  --pdf-find-input-placeholder-font-color: #{$pdf-find-input-placeholder-font-color-light};
+  //--pdf-find-input-placeholder-font-color: #{$pdf-find-input-placeholder-font-color-light};
   --pdf-thumbnail-selection-ring-color: #{$pdf-thumbnail-selection-ring-color-light};
   --pdf-thumbnail-selection-ring-selected-color: #{$pdf-thumbnail-selection-ring-selected-color-light};
   --pdf-error-wrapper-color: #{$pdf-error-wrapper-color-light};
@@ -88,7 +95,7 @@
 }
 
 .pdf-app #loadingBar .progress.indeterminate .glimmer {
-  background: repeating-linear-gradient(
+  /*background: repeating-linear-gradient(
     135deg,
     transparent 0,
     $pdf-loading-bar-secondary-color 5px,
@@ -96,11 +103,27 @@
     transparent 55px,
     transparent 95px,
     transparent 100px
-  );
+  );*/
+  /* pdfjsViewer(2.4.456).css */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: calc(100% + 150px);
+  background: repeating-linear-gradient(135deg,
+          var(--pdf-loading-bar-secondary-color1) 0,
+          var(--pdf-loading-bar-secondary-color2) 5px,
+          var(--pdf-loading-bar-secondary-color2) 45px,
+          var(--pdf-loading-bar-secondary-color3) 55px,
+          var(--pdf-loading-bar-secondary-color3) 95px,
+          var(--pdf-loading-bar-secondary-color1) 100px);
+  animation: progressIndeterminate 950ms linear infinite;
 }
 
 .pdf-app #findInput::placeholder {
+  /*
   color: $pdf-find-input-placeholder-font-color;
+  */
 }
 
 .pdf-app .doorHanger:after,
@@ -148,7 +171,17 @@
 .pdf-app .secondaryToolbarButton:hover,
 .vue-pdf-app-icon:hover,
 .pdf-app .secondaryToolbarButton:focus {
+  /*
   color: $pdf-button-hover-font-color;
+  */
+  background-color: rgba(0, 0, 0, 0.12);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-color: rgba(0, 0, 0, 0.32) rgba(0, 0, 0, 0.38) rgba(0, 0, 0, 0.42);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset,
+  0 0 1px rgba(255, 255, 255, 0.15) inset,
+  0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .pdf-app .dropdownToolbarButton > select {
@@ -251,7 +284,7 @@
 }
 
 .pdf-app.light #loadingBar .progress.indeterminate .glimmer {
-  background: repeating-linear-gradient(
+  /*background: repeating-linear-gradient(
     135deg,
     transparent 0,
     $pdf-loading-bar-secondary-color-light 5px,
@@ -259,11 +292,26 @@
     transparent 55px,
     transparent 95px,
     transparent 100px
-  );
+  );*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: calc(100% + 150px);
+  background: repeating-linear-gradient(135deg,
+          var(--pdf-loading-bar-secondary-color1-light) 0,
+          var(--pdf-loading-bar-secondary-color2-light) 5px,
+          var(--pdf-loading-bar-secondary-color2-light) 45px,
+          var(--pdf-loading-bar-secondary-color3-light) 55px,
+          var(--pdf-loading-bar-secondary-color3-light) 95px,
+          var(--pdf-loading-bar-secondary-color1-light) 100px);
+  animation: progressIndeterminate 950ms linear infinite;
 }
 
 .pdf-app.light #findInput::placeholder {
+  /*
   color: $pdf-find-input-placeholder-font-color-light;
+  */
 }
 
 .pdf-app.light .doorHanger:after,
@@ -311,7 +359,7 @@
 .pdf-app.light .secondaryToolbarButton:hover,
 .light .vue-pdf-app-icon:hover,
 .pdf-app.light .secondaryToolbarButton:focus {
-  color: $pdf-button-hover-font-color-light;
+  /*color: $pdf-button-hover-font-color-light;*/
 }
 
 .pdf-app.light .dropdownToolbarButton > select {
@@ -428,7 +476,7 @@
 }
 
 .pdf-app[class] #findInput::placeholder {
-  color: var(--pdf-find-input-placeholder-font-color);
+ /* color: var(--pdf-find-input-placeholder-font-color);*/
 }
 
 .pdf-app[class] .doorHanger:after,
@@ -476,7 +524,7 @@
 .pdf-app[class] .secondaryToolbarButton:hover,
 .vue-pdf-app-icon:hover[class],
 .pdf-app[class] .secondaryToolbarButton:focus {
-  color: var(--pdf-button-hover-font-color);
+  /*color: var(--pdf-button-hover-font-color);*/
 }
 
 .pdf-app[class] .dropdownToolbarButton > select {
