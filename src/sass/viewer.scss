@@ -21,6 +21,11 @@
   --sidebar-transition-timing-function: #{$pdf-sidebar-transition-timing-function};
 }
 
+//显示设置box-sizing属性，避免真实项目使用中设置box-sizing: border-box;从而导致样式错乱
+.pdf-app {
+  box-sizing: content-box;
+}
+
 .pdf-app {
   height: 100%;
   overflow-x: hidden;
