@@ -186,15 +186,15 @@
 .pdf-app .dropdownToolbarButton:hover,
 .pdf-app .overlayButton,
 .pdf-app .secondaryToolbarButton:hover,
-.vue-pdf-app-icon:hover,
+.pdf-app .vue-pdf-app-icon:hover,
 .pdf-app .secondaryToolbarButton:focus {
   /*
   color: $pdf-button-hover-font-color;
   */
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: $pdf-button-hover-font-color;
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.65);
   border-color: rgba(0, 0, 0, 0.32) rgba(0, 0, 0, 0.38) rgba(0, 0, 0, 0.42);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset,
   0 0 1px rgba(255, 255, 255, 0.15) inset,
@@ -380,9 +380,17 @@
 .pdf-app.light .dropdownToolbarButton:hover,
 .pdf-app.light .overlayButton,
 .pdf-app.light .secondaryToolbarButton:hover,
-.light .vue-pdf-app-icon:hover,
+.pdf-app.light .vue-pdf-app-icon:hover,
 .pdf-app.light .secondaryToolbarButton:focus {
   /*color: $pdf-button-hover-font-color-light;*/
+  background-color: $pdf-button-hover-font-color-light;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.65);
+  border-color: rgba(0, 0, 0, 0.32) rgba(0, 0, 0, 0.38) rgba(0, 0, 0, 0.42);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset,
+  0 0 1px rgba(255, 255, 255, 0.15) inset,
+  0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .pdf-app.light .dropdownToolbarButton > select {
@@ -459,6 +467,13 @@
 .pdf-app.light .splitToolbarButton.toggled > .toolbarButton.toggled,
 .pdf-app.light .secondaryToolbarButton.toggled {
   background-color: $pdf-button-toggled-color-light;
+  /*background-color: $pdf-button-toggled-color;*/
+  //background-color: rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  border-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.45) rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset,
+  0 0 1px rgba(0, 0, 0, 0.2) inset,
+  0 1px 0 rgba(255, 255, 255, 0.05);
 }
 /****** end fallback for IE11 ******/
 

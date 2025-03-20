@@ -1,6 +1,6 @@
 {
   "name": "vue-office-pdf",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.2",
   "description": "Vue 3 PDF viewer based on Mozilla's PDFJS and built with Vite.",
   "type": "module",
   "types": "./dist/types",
@@ -9,7 +9,6 @@
   "files": [
     "dist/index.*.js",
     "dist/*.css",
-    "dist/pdfjs/*",
     "dist/types/*"
   ],
   "keywords": [

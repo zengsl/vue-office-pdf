@@ -3,22 +3,22 @@
   xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="50px"
   height="50px" viewBox="-3 -3 54 54" xml:space="preserve">
   <g>
-    <path d="M25 0 A 26 26 0 0 0 0 25" stroke="#606c88" stroke-width="3"
+    <path d="M25 0 A 26 26 0 0 0 0 25" stroke="#696969" stroke-width="3"
       fill="transparent">
       <animateTransform attributeName="transform" type="rotate" from="0 25 25"
-        to="360 25 25" dur="1s" repeatCount="indefinite">
+        to="360 25 25" dur="1.2s" repeatCount="indefinite">
       </animateTransform>
     </path>
-    <path d="M25 8 A 18 18 0 0 0 8 25" stroke="#11ece5" stroke-width="3"
+    <path d="M25 8 A 18 18 0 0 0 8 25" stroke="#C0C0C0" stroke-width="3"
       fill="transparent">
       <animateTransform attributeName="transform" type="rotate" from="0 25 25"
-        to="360 25 25" dur="1.5s" repeatCount="indefinite">
+        to="360 25 25" dur="0.8s" repeatCount="indefinite">
       </animateTransform>
     </path>
-    <path d="M25 16 A 10 10 0 0 0 16 25" stroke="#606c88" stroke-width="3"
+    <path d="M25 16 A 10 10 0 0 0 16 25" stroke="#DCDCDC" stroke-width="3"
       fill="transparent">
       <animateTransform attributeName="transform" type="rotate" from="0 25 25"
-        to="360 25 25" dur="0.5s" repeatCount="indefinite">
+        to="360 25 25" dur="0.65s" repeatCount="indefinite">
       </animateTransform>
     </path>
 
