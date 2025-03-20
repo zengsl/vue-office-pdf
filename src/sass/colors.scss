@@ -153,6 +153,23 @@
 .pdf-app .secondaryToolbarButton,
 .pdf-app .overlayButton {
   color: $pdf-toolbar-font-color;
+ /* border: 0 none;
+  background: none;
+  width: 32px;
+  height: 25px;*/
+
+  min-width: 16px;
+  padding: 2px 6px 0;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 2px;
+  /*
+  color: rgba(255, 255, 255, 0.8);
+  */
+  font-size: 12px;
+  line-height: 14px;
+  user-select: none;
+  /* Opera does not support user-select, use <... unselectable="on"> instead */
+  cursor: default;
 }
 
 .vue-pdf-app-icon {
@@ -258,6 +275,12 @@
 .pdf-app .splitToolbarButton.toggled > .toolbarButton.toggled,
 .pdf-app .secondaryToolbarButton.toggled {
   background-color: $pdf-button-toggled-color;
+  //background-color: rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  border-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.45) rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset,
+  0 0 1px rgba(0, 0, 0, 0.2) inset,
+  0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 /****** light theme for IE11 ******/
