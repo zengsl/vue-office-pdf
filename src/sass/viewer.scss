@@ -703,7 +703,8 @@ html[dir="rtl"] .pdf-app .dropdownToolbarButton::after {
   top: 1px;
   /* Create a filled circle, with a diameter of 9 pixels, using only CSS: */
   content: "";
-  background-color: rgba(112, 219, 85, 1);
+  background-color: #8ab4f8;
+  //background-color: rgba(112, 219, 85, 1);
   height: 9px;
   width: 9px;
   border-radius: 50%;
