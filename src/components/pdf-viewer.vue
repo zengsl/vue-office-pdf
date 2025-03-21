@@ -1055,7 +1055,7 @@ export default defineComponent({
 
     const errorHandler = (error: Error) => {
       console.error(error)
-      ctx.emit('error', pdfApp.PDFViewerApplication)
+      ctx.emit('error', pdfApp.PDFViewerApplication, error)
     }
 
     const isSidebarToolbarHidden = computed(() => {
