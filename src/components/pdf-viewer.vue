@@ -1022,7 +1022,6 @@ if (AppOptions) {
 }
 
 const themeCacheKey = 'vue-pdf-app-theme'
-const errorHandler = console.error.bind(console)
 
 // pdf_print_service reassigns window.print.
 // Assign original window.print on component destroy.
@@ -1038,6 +1037,7 @@ export default defineComponent({
     },
     title: { type: Boolean, default: () => false },
     pdf: { type: [String, ArrayBuffer] },
+    args: {},
     theme: String as PropType<Theme>,
     fileName: String,
     idConfig: { type: Object as PropType<ToolbarIdConfig> },
@@ -1052,6 +1052,11 @@ export default defineComponent({
     const cacheTheme = ref(
       window.localStorage.getItem(themeCacheKey) as Theme | null,
     )
+
+    const errorHandler = (error: Error) => {
+      console.error(error)
+      ctx.emit('error', pdfApp.PDFViewerApplication)
+    }
 
     const isSidebarToolbarHidden = computed(() => {
       const idConfig = props.idConfig as ToolbarIdConfig
@@ -1169,7 +1174,7 @@ export default defineComponent({
         pdfApp.PDFViewerApplication.close()
       }
       else {
-        pdfApp.PDFViewerApplication.open(props.pdf)
+        pdfApp.PDFViewerApplication.open(props.pdf, props.args)
           .then(() => {
             if (props.pageNumber) {
               setTimeout(
