@@ -1293,6 +1293,13 @@ export default defineComponent({
 
     watch(() => props.pdf, open)
 
+    const download = () => {
+      pdfApp.PDFViewerApplication.download()
+    }
+
+    // 下载是否完成标记，用于可用于判断下载逻辑
+    const downloadComplete = () => pdfApp.PDFViewerApplication.downloadComplete
+
     return {
       showElem,
       getScale,
@@ -1302,6 +1309,8 @@ export default defineComponent({
       localTheme,
       defaultLocale,
       bindOpenHandler,
+      _previewDownload: download,
+      _downloadComplete: downloadComplete,
     }
   },
 })
