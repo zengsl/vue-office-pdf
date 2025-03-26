@@ -9,6 +9,11 @@ export default createRouter({
       component: () => import('@/views/pdf-app.vue'),
     },
     {
+      path: '/back-end-file',
+      name: 'back-end-file',
+      component: () => import('@/views/pdf-app2.vue'),
+    },
+    {
       path: '/theme-toggling',
       name: 'theme-toggling',
       component: () => import('@/views/theme-toggling.vue'),
