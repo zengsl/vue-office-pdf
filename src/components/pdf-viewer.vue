@@ -1293,12 +1293,17 @@ export default defineComponent({
 
     watch(() => props.pdf, open)
 
-    const download = () => {
+    /**
+     * 下载预览文件：1、如果预览文件加载完成，则直接下载；2、如果预览文件未加载完成，则会通过url下载并用浏览器预览。如果url需要鉴权则会出现问题，因为它并没有和open文件保持一致进行传参。
+     */
+    const downloadPreviewPdf = () => {
       pdfApp.PDFViewerApplication.download()
     }
 
-    // 下载是否完成标记，用于可用于判断下载逻辑
-    const downloadComplete = () => pdfApp.PDFViewerApplication.downloadComplete
+    /**
+     * 下载是否完成标记，用于可用于判断下载逻辑
+     */
+    const previewDownloadComplete = () => pdfApp.PDFViewerApplication.downloadComplete
 
     return {
       showElem,
@@ -1309,8 +1314,8 @@ export default defineComponent({
       localTheme,
       defaultLocale,
       bindOpenHandler,
-      _previewDownload: download,
-      _downloadComplete: downloadComplete,
+      downloadPreviewPdf,
+      previewDownloadComplete,
     }
   },
 })
