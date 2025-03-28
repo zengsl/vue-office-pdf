@@ -1,3 +1,4 @@
+import Layout from '@/views/cpn/Layout.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 export default createRouter({
@@ -27,6 +28,23 @@ export default createRouter({
       path: '/sandbox',
       name: 'sandbox',
       component: () => import('@/views/sandbox-view.vue'),
+    },
+    {
+      path: '/layout-type',
+      name: 'layoutType',
+      component: Layout,
+      children: [
+        {
+          path: 'sample',
+          name: 'layoutTypeSample',
+          component: () => import('@/views/pdf-easy-sample.vue'),
+        },
+        {
+          path: 'dialog',
+          name: 'layoutTypeDialog',
+          component: () => import('@/views/pdfDialogTest.vue'),
+        },
+      ],
     },
   ],
 })

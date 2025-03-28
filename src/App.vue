@@ -18,9 +18,17 @@
       </router-link>|
       <router-link to="/pdf-test-Dialog">
         Pdf-Test-Dialog
-      </router-link>
+      </router-link>|
+      <router-link to="/layout-type/sample">
+        layoutTypeSample
+      </router-link>|
+      <router-link to="/layout-type/dialog">
+        layoutTypeDialog
+      </router-link>|
     </div>
-    <router-view />
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 
