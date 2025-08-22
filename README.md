@@ -842,3 +842,4 @@ export default {
 ## TODO
 
 - [ ] Use 'link' tag to load localize properties in a dialog, it can't render the pdf when you open it at the second time. See the demo `PdfPreviewDialog.vue`
+- [ ] 和ELDialog同时使用时需要注意：去除append-to-body或者增加destroy-on-close，否则会导致无法预览
