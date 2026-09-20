@@ -640,7 +640,6 @@ const PDFViewerApplication = {
 
       const message = exception && exception.message;
       let loadingErrorMessage;
-
       if (exception instanceof _pdf.InvalidPDFException) {
         loadingErrorMessage = this.l10n.get("invalid_file_error", null, "Invalid or corrupted PDF file.");
       } else if (exception instanceof _pdf.MissingPDFException) {
@@ -652,10 +651,15 @@ const PDFViewerApplication = {
       }
 
       return loadingErrorMessage.then(msg => {
-        this.error(msg, {
+        // 有真实错误信息时 UI 主消息直接展示它（如后端返回的业务提示），否则回退到本地化文案
+        const displayMessage = message || msg;
+        this.error(displayMessage, {
           message
         });
-        throw new Error(msg);
+        const error = new Error(displayMessage);
+        error.rawMessage = message;
+        error.cause = exception;
+        throw error;
       });
     });
   },

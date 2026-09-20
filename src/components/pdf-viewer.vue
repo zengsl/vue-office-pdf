@@ -997,7 +997,7 @@ import type {PageScale, Theme, ToolbarConfig, ToolbarIdConfig} from '@/types'
 import type {
   PropType,
 } from 'vue'
-import {PDFDataRangeTransport} from '@/pdfjs-dist/lib/pdf.js'
+import {PDFDataRangeTransport, UnexpectedResponseException} from '@/pdfjs-dist/lib/pdf.js'
 import * as pdfApp from '@/pdfjs-dist/lib/web/app.js'
 import {AppOptions} from '@/pdfjs-dist/lib/web/app_options.js'
 import {PDF_FILE_INPUT_ID} from '@/utils/constants'
@@ -1204,11 +1204,17 @@ export default defineComponent({
         });
         // 后端有可能判定文件过小不需要range请求而进行全量传输
         if (response.status !== 200 && response.status !== 206 ) {
-          throw new Error(`Expected 206 Partial Content or 200,than got ${response.status}`);
+          throw new UnexpectedResponseException(await extractPdfErrorMessage(response, `Expected 206 Partial Content or 200, than got ${response.status}`), response.status)
         }
 
         const arrayBuffer = await response.arrayBuffer();
         const data = new Uint8Array(arrayBuffer);
+
+        // 后端异常时即使返回 2xx，body 也可能是 JSON/HTML 错误提示而非 PDF 字节流，
+        // 此时不能依赖 content-type（后端常常不设置或设置错误），改用 PDF 魔数判断
+        if (begin === 0 && !isPdfData(data)) {
+          throw new UnexpectedResponseException(await extractPdfErrorMessage(data, `HTTP ${response.status} but response body is not a PDF`), response.status)
+        }
 
         // 回传数据给 PDF.js
         this.onDataRange && this.onDataRange(begin, data);
@@ -1218,6 +1224,32 @@ export default defineComponent({
        onDataRange(begin: number, chunk: Uint8Array) {
          // 实际逻辑由 PDF.js 注入，这里只是防止 undefined
        }*/
+    }
+
+    // PDF 文件以 %PDF 魔数开头
+    function isPdfData(data: Uint8Array): boolean {
+      return data.length >= 4 && data[0] === 0x25 && data[1] === 0x50 && data[2] === 0x44 && data[3] === 0x46
+    }
+
+    // 从后端错误响应中提取可读提示，避免真实错误在上报时被本地化文案覆盖
+    async function extractPdfErrorMessage(source: Response | Uint8Array, fallback: string): Promise<string> {
+      const text = (source instanceof Response
+        ? await source.text()
+        : new TextDecoder('utf-8').decode(source)
+      ).trim()
+      if (!text) {
+        return fallback
+      }
+      try {
+        const body = JSON.parse(text) as Record<string, unknown>
+        const detail = body.msg || body.message || body.error || body.errorMsg || body.reason
+        if (typeof detail === 'string' && detail.trim()) {
+          return `${fallback} - ${detail.trim()}`
+        }
+      } catch {
+        // 非 JSON 响应体，降级为截取文本片段
+      }
+      return `${fallback} - ${text.slice(0, 120)}`
     }
 
     function isRangeObject(props: RangProps): props is RangConfig {

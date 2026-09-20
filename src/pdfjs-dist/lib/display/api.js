@@ -1547,6 +1547,10 @@ class WorkerTransport {
         case "UnknownErrorException":
           reason = new _util.UnknownErrorException(ex.message, ex.details);
           break;
+
+        default:
+          reason = new Error(ex.message || ex.name || "Unknown PDF error");
+          break;
       }
 
       loadingTask._capability.reject(reason);

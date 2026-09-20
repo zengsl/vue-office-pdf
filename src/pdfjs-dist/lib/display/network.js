@@ -179,6 +179,22 @@ class NetworkManager {
 
     const chunk = getArrayBuffer(xhr);
 
+    // 后端可能以正常状态码返回 JSON 错误体（业务校验失败等）而非 PDF 字节流，
+    // 只校验状态码会把 JSON 当 PDF 解析并笼统报 "Invalid PDF structure"，这里提取后端提示
+    const contentType = xhr.getResponseHeader("Content-Type") || "";
+
+    if (contentType.includes("application/json") && chunk) {
+      const detail = (0, _network_utils.extractJsonErrorMessage)(new TextDecoder("utf-8").decode(chunk));
+
+      if (detail) {
+        if (pendingRequest.onError) {
+          pendingRequest.onError(xhrStatus, detail);
+        }
+
+        return;
+      }
+    }
+
     if (xhrStatus === PARTIAL_CONTENT_RESPONSE) {
       const rangeHeader = xhr.getResponseHeader("Content-Range");
       const matches = /bytes (\d+)-(\d+)\/(\d+)/.exec(rangeHeader);
@@ -370,9 +386,9 @@ class PDFNetworkStreamFullRequestReader {
     this._requests = [];
   }
 
-  _onError(status) {
+  _onError(status, message) {
     const url = this._url;
-    const exception = (0, _network_utils.createResponseStatusError)(status, url);
+    const exception = (0, _network_utils.createResponseStatusError)(status, url, message);
     this._storedError = exception;
 
     this._headersReceivedCapability.reject(exception);

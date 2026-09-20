@@ -57,6 +57,22 @@ function createHeaders(httpHeaders) {
   return headers;
 }
 
+// 后端常以正常状态码返回 JSON 错误体（业务校验失败等）而非 PDF 字节流，
+// 此时只校验状态码会把 JSON 当 PDF 解析并笼统报 "Invalid PDF structure"，提取后端提示
+async function extractErrorResponseMessage(response) {
+  const contentType = response.headers.get("content-type") || "";
+
+  if (!contentType.includes("application/json")) {
+    return null;
+  }
+
+  try {
+    return (0, _network_utils.extractJsonErrorMessage)(await response.text());
+  } catch (ex) {
+    return null;
+  }
+}
+
 class PDFFetchStream {
   constructor(source) {
     this.source = source;
@@ -129,9 +145,15 @@ class PDFFetchStreamReader {
     this._isRangeSupported = !source.disableRange;
     this._headers = createHeaders(this._stream.httpHeaders);
     const url = source.url;
-    fetch(url, createFetchOptions(this._headers, this._withCredentials, this._abortController)).then(response => {
+    fetch(url, createFetchOptions(this._headers, this._withCredentials, this._abortController)).then(async response => {
       if (!(0, _network_utils.validateResponseStatus)(response.status)) {
         throw (0, _network_utils.createResponseStatusError)(response.status, url);
+      }
+
+      const errorMessage = await extractErrorResponseMessage(response);
+
+      if (errorMessage) {
+        throw (0, _network_utils.createResponseStatusError)(response.status, url, errorMessage);
       }
 
       this._reader = response.body.getReader();
@@ -243,15 +265,21 @@ class PDFFetchStreamRangeReader {
     this._headers.append("Range", `bytes=${begin}-${end - 1}`);
 
     const url = source.url;
-    fetch(url, createFetchOptions(this._headers, this._withCredentials, this._abortController)).then(response => {
+    fetch(url, createFetchOptions(this._headers, this._withCredentials, this._abortController)).then(async response => {
       if (!(0, _network_utils.validateResponseStatus)(response.status)) {
         throw (0, _network_utils.createResponseStatusError)(response.status, url);
+      }
+
+      const errorMessage = await extractErrorResponseMessage(response);
+
+      if (errorMessage) {
+        throw (0, _network_utils.createResponseStatusError)(response.status, url, errorMessage);
       }
 
       this._readCapability.resolve();
 
       this._reader = response.body.getReader();
-    });
+    }).catch(this._readCapability.reject);
     this.onProgress = null;
   }
 

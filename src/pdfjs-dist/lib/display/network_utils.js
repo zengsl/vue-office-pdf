@@ -26,6 +26,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createResponseStatusError = createResponseStatusError;
 exports.extractFilenameFromHeader = extractFilenameFromHeader;
+exports.extractJsonErrorMessage = extractJsonErrorMessage;
 exports.validateRangeRequestCapabilities = validateRangeRequestCapabilities;
 exports.validateResponseStatus = validateResponseStatus;
 
@@ -94,12 +95,26 @@ function extractFilenameFromHeader(getResponseHeader) {
   return null;
 }
 
-function createResponseStatusError(status, url) {
+function createResponseStatusError(status, url, message) {
   if (status === 404 || status === 0 && url.startsWith("file:")) {
     return new _util.MissingPDFException('Missing PDF "' + url + '".');
   }
 
-  return new _util.UnexpectedResponseException("Unexpected server response (" + status + ') while retrieving PDF "' + url + '".', status);
+  return new _util.UnexpectedResponseException(message || ("Unexpected server response (" + status + ') while retrieving PDF "' + url + '".'), status);
+}
+
+// 后端常以正常状态码返回 JSON 错误体（业务校验失败等）而非 PDF 字节流，提取其中的提示文案
+function extractJsonErrorMessage(text) {
+  try {
+    const body = JSON.parse(text);
+    const detail = body.msg || body.message || body.error || body.errorMsg || body.reason;
+
+    if (typeof detail === "string" && detail.trim()) {
+      return detail.trim();
+    }
+  } catch (ex) {}
+
+  return null;
 }
 
 function validateResponseStatus(status) {

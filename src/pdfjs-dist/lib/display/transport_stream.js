@@ -154,7 +154,15 @@ class PDFDataTransportStream {
 
     const reader = new PDFDataTransportStreamRangeReader(this, begin, end);
 
-    this._pdfDataRangeTransport.requestDataRange(begin, end);
+    // requestDataRange 的 rejection 原本无人处理，reader 会永久等待，
+    // 最终解析出 "Invalid PDF structure"。这里把错误回传给 reader
+    const requestPromise = this._pdfDataRangeTransport.requestDataRange(begin, end);
+
+    if (requestPromise && typeof requestPromise.catch === "function") {
+      requestPromise.catch(reason => {
+        reader._error(reason);
+      });
+    }
 
     this._rangeReaders.push(reader);
 
@@ -338,6 +346,10 @@ class PDFDataTransportStreamRangeReader {
       };
     }
 
+    if (this._errorReason) {
+      throw this._errorReason;
+    }
+
     if (this._done) {
       return {
         value: undefined,
@@ -360,6 +372,23 @@ class PDFDataTransportStreamRangeReader {
         value: undefined,
         done: true
       });
+    });
+
+    this._requests = [];
+
+    this._stream._removeRangeReader(this);
+  }
+
+  _error(reason) {
+    if (this._done) {
+      return;
+    }
+
+    this._done = true;
+    this._errorReason = reason;
+
+    this._requests.forEach(function (requestCapability) {
+      requestCapability.reject(reason);
     });
 
     this._requests = [];
